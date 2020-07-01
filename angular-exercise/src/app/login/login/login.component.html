@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="row align-items-center min-vh-100">
+                <div class="col shadow-lg py-5 px-4 rounded-right bg-white">
+                    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+                        <div class="row">
+                            <div class="col">
+                                <label>Username</label>
+                                <input type="text" placeholder="example@gmail.com" name="username" required
+                                    #username="ngModel" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
+                                    [(ngModel)]="user.username" class="form-control">
+                                <small class="invalid" *ngIf="(username.invalid && username.touched)">Please insert a
+                                    valid email</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Password</label>
+                                <input type="password" name="password" [(ngModel)]="user.password"
+                                    placeholder="Insert Password" required [(ngModel)]="user.password"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 15px;">
+                            <div class="col">
+                                <input type="submit" value="Login" required style="width: 100%;"
+                                    class="btn btn-primary">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <small class="invalid" *ngIf="isLoginFailed">{{error}}</small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

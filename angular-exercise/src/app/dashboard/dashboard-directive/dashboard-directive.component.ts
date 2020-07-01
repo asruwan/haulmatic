@@ -9,7 +9,13 @@ export class DashboardDirectiveComponent implements OnInit {
 
   constructor() { }
 
+  typingWord: string;
+
   ngOnInit(): void {
+  }
+  clearSearch(event) {
+    if (event.isClear)
+      this.typingWord = null;
   }
 
 }
